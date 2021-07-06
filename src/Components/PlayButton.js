@@ -1,6 +1,7 @@
-import useSound from "use-sound";
-
 import React, { useEffect, useState } from "react";
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import VolumeOffIcon from '@material-ui/icons/VolumeOff';
+
 
 const PlayButton = () => {
   const [mute, setMute] = useState(false);
@@ -14,14 +15,14 @@ const PlayButton = () => {
   }, [mute]);
 
   return (
-    <div>
-      <button onClick={() => audioTune.play()}>Click me!</button>
-      <button
+    <div style={{display: "flex", alignContent: "center", justifyContent: "center", marginTop: "50px"}} >
+      <button onClick={() => audioTune.play()}>Ring the bell!</button>
+      <button type="submit" style={{border: 0, background: "transparent"}}
         onClick={() => {
           setMute(!mute);
         }}
       >
-        Mute
+        {mute ? <VolumeOffIcon/> : <VolumeUpIcon/>}
       </button>
     </div>
   );
